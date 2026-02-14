@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Valentine's day ❤️</title>
+<title>Happy Valentine's Day ❤️</title>
 
 <style>
 body{
@@ -14,10 +14,10 @@ body{
     text-align:center;
 }
 
-/* Sections */
+/* Pages */
 .page{
     display:none;
-    height:100vh;
+    min-height:100vh;
     justify-content:center;
     align-items:center;
     flex-direction:column;
@@ -41,6 +41,7 @@ button{
     background:white;
     color:#ff4b6e;
     font-weight:bold;
+    transition:0.3s;
 }
 
 button:hover{
@@ -51,6 +52,7 @@ button:hover{
 .container{
     width:90%;
     max-width:900px;
+    margin:auto;
 }
 
 .gift{
@@ -60,16 +62,27 @@ button:hover{
     border-radius:15px;
 }
 
-.gift-img{
-    width:80%;
-    max-width:380px;
-    margin:9px;
-    border-radius: 10px;
+/* Image grid */
+.image-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:15px;
 }
 
+.image-grid img{
+    width:100%;
+    border-radius:14px;
+    object-fit:cover;
+    box-shadow:0 8px 15px rgba(0,0,0,0.15);
+}
 
+/* First image big */
+.image-grid img:first-child{
+    grid-column:span 2;
+}
 
-
+/* Notes */
 .note{
     background:white;
     color:#ff4b6e;
@@ -78,21 +91,31 @@ button:hover{
     font-size:18px;
 }
 
-/* 📱 MOBILE PHONE RESPONSIVE */
-@media (max-width:600px){
-    h1{
-        font-size:26px;
-    }
+/* MOBILE */
+@media(max-width:600px){
+    h1{font-size:26px;}
+    button{font-size:16px; padding:10px 20px;}
+    .note{font-size:16px;}
+}
 
-    button{
-        font-size:16px;
-        padding:10px 20px;
-    }
+/* 🔥 PAGE 4 FIX */
+#page4{
+    justify-content:flex-start;
+    align-items:flex-start;
+    height:auto;
+    min-height:100vh;
+    padding-top:25px;
+    padding-bottom:40px;
+    overflow-y:auto;
+}
 
-    .note{
-        font-size:16px;
+/* Safe area for iPhone notch */
+@supports(padding: env(safe-area-inset-top)){
+    #page4{
+        padding-top:calc(env(safe-area-inset-top) + 25px);
     }
 }
+
 </style>
 </head>
 
@@ -117,7 +140,7 @@ button:hover{
     <button onclick="nextPage('page4')">Yayyy ❤️</button>
 </div>
 
- <!-- PAGE 4 (GIFTS) -->
+<!-- PAGE 4 -->
 <div id="page4" class="page">
 <div class="container">
 
@@ -126,13 +149,15 @@ button:hover{
     <!-- GIFT 1 -->
     <div class="gift">
         <h2>Gift 1 — ❤️</h2>
-        
-    <img src="images\image1.jpg" alt="valentine image image 1" class="gift-img">
 
-    <img src="images\image2.jpg" alt="valentine image image 2" class="gift-img">
-     <img src="images\image3.jpg" alt="valentine image image 2" class="gift-img"> 
+        <div class="image-grid">
+            <img src="images/image1.jpg">
+            <img src="images/image2.jpg">
+            <img src="images/image3.jpg">
+        </div>
+
         <h2>The Beauty of OJOCHENEMI ❤️</h2>
-        <h3>she's so beautiful</h3>
+        <h3>She's so beautiful</h3>
     </div>
 
     <!-- GIFT 2 -->
@@ -140,13 +165,16 @@ button:hover{
         <h2>Gift 2 — A Special Note 💌</h2>
 
         <div class="note">
-            Happy Valentine’s Day Mama  
+            Happy Valentine’s Day Mama 💖  
             <br><br>
-            Thank you for your love, care, and everything you do,
-             <br>💖 I LOVE YOU SO SO MUCH 💖<br> 
-            You mean so much and today is just a small way to show appreciation and love.
-            I will celebrate my love for you everyday 
-            Wishing you happiness always...💖
+            Thank you for your love, care, and everything you do.  
+            <br><br>
+            I LOVE YOU SO SO MUCH ❤️  
+            <br><br>
+            You mean so much and today is just a small way to show appreciation and love.  
+            I will celebrate my love for you every day 💕  
+            <br><br>
+            Wishing you happiness always...
         </div>
     </div>
 
@@ -155,11 +183,8 @@ button:hover{
 
 <script>
 function nextPage(pageId){
-    document.querySelectorAll('.page')
-        .forEach(p => p.classList.remove('active'));
-
-    document.getElementById(pageId)
-        .classList.add('active');
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
 }
 </script>
 
