@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's day ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    color:white;
+    text-align:center;
+}
+
+/* Sections */
+.page{
+    display:none;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.active{
+    display:flex;
+}
+
+h1{
+    font-size:40px;
+}
+
+button{
+    padding:12px 25px;
+    margin:10px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    background:white;
+    color:#ff4b6e;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Gifts */
+.container{
+    width:90%;
+    max-width:900px;
+}
+
+.gift{
+    background:rgba(255,255,255,0.15);
+    padding:20px;
+    margin:15px 0;
+    border-radius:15px;
+}
+
+.gift-img{
+    width:80%;
+    max-width:380px;
+    margin:9px;
+    border-radius: 10px;
+}
+
+
+
+
+.note{
+    background:white;
+    color:#ff4b6e;
+    padding:15px;
+    border-radius:10px;
+    font-size:18px;
+}
+
+/* 📱 MOBILE PHONE RESPONSIVE */
+@media (max-width:600px){
+    h1{
+        font-size:26px;
+    }
+
+    button{
+        font-size:16px;
+        padding:10px 20px;
+    }
+
+    .note{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+    <h1>❤️ HAPPY VALENTINE MAMA ❤️</h1>
+    <button onclick="nextPage('page2')">Continue</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+    <h1>Will You Be My Valentine? 💌</h1>
+    <button onclick="nextPage('page3')">YES ❤️</button>
+    <button onclick="alert('No is not allowed 😄')">NO 😜</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+    <h1>CHECK IT OUT 💌</h1>
+    <button onclick="nextPage('page4')">Yayyy ❤️</button>
+</div>
+
+ <!-- PAGE 4 (GIFTS) -->
+<div id="page4" class="page">
+<div class="container">
+
+    <h1>🎁 Your Valentine Gifts</h1>
+
+    <!-- GIFT 1 -->
+    <div class="gift">
+        <h2>Gift 1 — ❤️</h2>
+        
+    <img src="images.jpg\image1.jpg" alt="valentine image image 1" class="gift-img">
+    <img src="images.jpg\image2.jpg" alt="valentine image image 2" class="gift-img">
+     <img src="images.jpg\image3.jpg" alt="valentine image image 2" class="gift-img"> 
+        <h2>The Beauty of OJOCHENEMI ❤️</h2>
+        <h3>she's so beautiful</h3>
+    </div>
+
+    <!-- GIFT 2 -->
+    <div class="gift">
+        <h2>Gift 2 — A Special Note 💌</h2>
+
+        <div class="note">
+            Happy Valentine’s Day Mama  
+            <br><br>
+            Thank you for your love, care, and everything you do,
+             <br>💖 I LOVE YOU SO SO MUCH 💖<br> 
+            You mean so much and today is just a small way to show appreciation and love.
+            I will celebrate my love for you everyday 
+            Wishing you happiness always...💖
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+function nextPage(pageId){
+    document.querySelectorAll('.page')
+        .forEach(p => p.classList.remove('active'));
+
+    document.getElementById(pageId)
+        .classList.add('active');
+}
+</script>
+
+</body>
+</html>
